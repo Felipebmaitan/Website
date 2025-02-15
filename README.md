@@ -4,5 +4,6 @@ This is the repository of my website, this is under MIT License, so fell free to
 
 ## TODO:
 
-- Make the website responsive and usable on mobile devices (maybe think about using Hugo or some other static website creator);
+- ~~Make the website responsive and usable on mobile devices (maybe think about using Hugo or some other static website creator);~~
 - Create About Me, Contact and Blog pages;
+- Find out how to implement blogging, preferably without js and without having to write html every time (again, maybe try [Hugo](https://gohugo.io/) out?).

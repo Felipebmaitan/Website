@@ -5,143 +5,136 @@
     font-weight: 300 800;
 }
 
+:root {
+    --bg-color: #171717;
+    --text-color: #FFFFFF;
+    --card-bg: #242424;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #171717;
-    font-family: Actor, sans;
-    color: #FFFFFF;
+    background-color: var(--bg-color);
+    font-family: Actor, sans-serif;
+    color: var(--text-color);
+    min-height: 100vh;
+    position: relative;
 }
 
 a {
     text-decoration: none;
-    font-family: Actor, sans;
-    color: #FFFFFF;
+    color: var(--text-color);
+}
+
+/* Top Navigation Menu */
+.menu {
+    padding: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
 }
 
 .menu a {
-    float: right;
-    color: #FFFFFF;
-    font-size: 1.5625vw;
+    font-size: 1.2rem;
+    transition: opacity 0.2s;
 }
 
-.menu a.about {
-    margin-top: 4vh;
-    margin-left: 7vw;
+.menu a:hover {
+    opacity: 0.8;
 }
 
-.menu a.blog {
-    margin-top: 4vh;
-    margin-left: 7vw;
-}
-
-.menu a.contact {
-    margin-top: 4vh;
-    margin-left: 7vw;
-    margin-right: 3vw;
-}
-
+/* Main Content */
 .center-rectangle {
-    float: left;
-    align-items: center;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    width: 35vw;
-    height: 35vh;
+    transform: translate(-50%, -50%);
+    width: min(90%, 500px);
+    text-align: center;
+}
+
+.pfp {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
 }
 
 .center-rectangle h1 {
-    font-size: 6vh;
-    margin-left: 1vw;
-    margin-top: 5.5vh;
-    position: absolute;
-    display: inline-block;
-    align-items: center;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    margin-bottom: 0.5rem;
 }
 
-.center-rectangle img.pfp {
-    width: 9vw;
-    height: 9vh;
-    height: auto;
-    border-radius: 50%;
-    display: inline-block;
-    margin-bottom: 2vh;
-    margin-left: 1vw;
+.center-rectangle > p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin-bottom: 2rem;
+    color: #a0a0a0;
 }
 
-.center-rectangle p {
-    font-size: 2vh;
-    display: inline-block;
-    position: fixed;
-    bottom: 43%;
-    align-items: center;
-    margin-left: 1vw;
-    margin-bottom: 1.5vh;
-    margin-top: 0.2vh;
-}
+/* Social Media Links */
 .center-rectangle .menu {
-    position: relative;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+    padding: 0;
 }
 
 .center-rectangle .menu a {
-    width: 15vw;
-    height: 5vh;
-    border-radius: 1vw;
-    margin: 5px;
-    background-color: #242424;
-    float: left;
-    margin-left: 1vw;
-    margin-top: 0.5vh;
+    background-color: var(--card-bg);
+    padding: 0.8rem;
+    border-radius: 8px;
     display: flex;
     align-items: center;
-    position: relative;
+    gap: 1rem;
+    transition: transform 0.2s;
 }
 
-.center-rectangle .menu a p {
-    font-size: 2.5vh;
-    position: absolute;
-    margin-left: 4vw;
-    margin-top: 2vh;
-    transform: translate(-3%, 100%);
-    height: 35vh;
-}
-
-.center-rectangle h1 {
-    font-size: 6vh;
-    margin-left: 1vw;
-    margin-top: 5.5vh;
-    position: absolute;
-    display: inline-block;
-}
-
-.center-rectangle .menu div {
-    margin: 1px;
+.center-rectangle .menu a:hover {
+    transform: translateY(-2px);
 }
 
 .center-rectangle .menu a img {
-    float: left;
-    max-width: 80%;
-    max-height: 80%;
-    position: inherit;
-    align-content: center;
-    margin-left: 1vw;
+    width: 24px;
+    height: 24px;
 }
 
-.center-rectangle .menu .linkedin a img {
-    max-width: 90%;
-    max-height: 90%;
+.center-rectangle .menu a p {
+    font-size: 1rem;
+    margin: 0;
 }
 
-.center-rectangle .menu .twitter a img {
-    max-width: 75%;
-    max-height: 75%;
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
 }
 
-footer a{
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    margin-right: 15px;
-    margin-bottom: 15px;
+footer a {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+footer a:hover {
+    opacity: 1;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .menu {
+        padding: 1rem;
+    }
+    
+    .center-rectangle {
+        width: 90%;
+    }
+    
+    .center-rectangle .menu {
+        grid-template-columns: 1fr;
+    }
 }
