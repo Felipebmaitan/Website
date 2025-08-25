@@ -1,12 +1,8 @@
-@font-face {
-    font-family: Actor;
-    src: url('src/assets/Actor-Regular.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 300 800;
-}
+/* Import Inter font */
+@import url('../assets/fonts/inter.css');
 
 :root {
-    --bg-color: #171717;
+    --bg-color: #121212;
     --text-color: #FFFFFF;
     --card-bg: #242424;
 }
@@ -19,10 +15,12 @@
 
 body {
     background-color: var(--bg-color);
-    font-family: Actor, sans-serif;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
     color: var(--text-color);
     min-height: 100vh;
     position: relative;
+    overflow-x: hidden;
 }
 
 a {
@@ -39,7 +37,8 @@ a {
 }
 
 .menu a {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+    font-weight: 500;
     transition: opacity 0.2s;
 }
 
@@ -53,25 +52,38 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: min(90%, 500px);
+    width: min(90%, 600px);
     text-align: center;
 }
 
+.header-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.header-text {
+    text-align: left;
+}
+
 .pfp {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
+    width: 110px;
+    height: 110px;
+    border-radius: 16px;
+    margin-right: 1.5rem;
+    margin-bottom: 0;
 }
 
 .center-rectangle h1 {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
-    margin-bottom: 0.5rem;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
 }
 
 .center-rectangle > p {
-    font-size: clamp(1rem, 3vw, 1.2rem);
-    margin-bottom: 2rem;
+    font-size: clamp(1.4rem, 4vw, 1.6rem);
+    margin-bottom: 0;
     color: #a0a0a0;
 }
 
@@ -103,7 +115,8 @@ a {
 }
 
 .center-rectangle .menu a p {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
     margin: 0;
 }
 
@@ -115,7 +128,7 @@ footer {
 }
 
 footer a {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     opacity: 0.7;
     transition: opacity 0.2s;
 }
@@ -128,13 +141,104 @@ footer a:hover {
 @media (max-width: 768px) {
     .menu {
         padding: 1rem;
+        justify-content: center;
+    }
+    
+    .menu a {
+        font-size: 1.4rem;
+        font-weight: 500;
     }
     
     .center-rectangle {
-        width: 90%;
+        width: 95%;
+        padding: 1rem;
+    }
+    
+    .header-section {
+        margin-bottom: 2rem;
+    }
+    
+    .pfp {
+        width: 90px;
+        height: 90px;
+        margin-right: 1.2rem;
+        border-radius: 14px;
     }
     
     .center-rectangle .menu {
         grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .center-rectangle .menu a {
+        padding: 1rem;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    footer {
+        position: fixed;
+        bottom: 0.5rem;
+        right: 0.5rem;
+    }
+    
+    footer a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu {
+        padding: 0.8rem;
+        gap: 1.5rem;
+        justify-content: center;
+    }
+    
+    .menu a {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    
+    .center-rectangle {
+        width: 96%;
+        padding: 0.8rem;
+    }
+    
+    .header-section {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .pfp {
+        width: 80px;
+        height: 80px;
+        margin-right: 0;
+        margin-bottom: 1rem;
+        border-radius: 12px;
+    }
+    
+    .header-text {
+        text-align: center;
+    }
+    
+    .center-rectangle .menu a {
+        padding: 0.9rem;
+        gap: 0.9rem;
+        justify-content: center;
+    }
+    
+    .center-rectangle .menu a img {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .center-rectangle .menu a p {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    
+    footer a {
+        font-size: 0.9rem;
     }
 }

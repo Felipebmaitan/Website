@@ -1,0 +1,48 @@
+/* Inter Variable Font - Optimized for modern browsers */
+@font-face {
+  font-family: InterVariable;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("InterVariable.woff2") format("woff2");
+}
+
+/* Inter Static Fonts - Fallback for older browsers */
+@font-face { 
+  font-family: "Inter"; 
+  font-style: normal; 
+  font-weight: 400; 
+  font-display: swap; 
+  src: url("Inter-Regular.woff2") format("woff2"); 
+}
+
+@font-face { 
+  font-family: "Inter"; 
+  font-style: normal; 
+  font-weight: 500; 
+  font-display: swap; 
+  src: url("Inter-Medium.woff2") format("woff2"); 
+}
+
+@font-face { 
+  font-family: "Inter"; 
+  font-style: normal; 
+  font-weight: 600; 
+  font-display: swap; 
+  src: url("Inter-SemiBold.woff2") format("woff2"); 
+}
+
+/* Font feature settings for better typography */
+@font-feature-values InterVariable {
+    @styleset {
+        ss01: 1; /* Open digits */
+        ss02: 2; /* Disambiguation */
+    }
+}
+
+@font-feature-values Inter {
+    @styleset {
+        ss01: 1; /* Open digits */
+        ss02: 2; /* Disambiguation */
+    }
+}
