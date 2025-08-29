@@ -1,0 +1,26 @@
+name: Deploy to VPS
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo "Removing old deployment..."
+            sudo rm -rf /var/www/maitan.me/html
+            echo "Cloning repository..."
+            git clone https://github.com/Felipebmaitan/Website.git
+            echo "Copying src contents to html root..."
+            sudo mkdir /var/www/maitan.me/html
+            sudo cp -r ~/Website/src/* /var/www/maitan.me/html/
+            rm -rf ~/Website
+            echo "Deployment successful!"
